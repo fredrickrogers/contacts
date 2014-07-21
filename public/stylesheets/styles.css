@@ -1,0 +1,9 @@
+.contact {
+    border: 1px solid #c5c5c5;
+    overflow:hidden;
+}
+
+.contact img {
+    float:left;
+    margin-right:10px;
+}

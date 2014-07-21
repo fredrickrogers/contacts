@@ -1,6 +1,6 @@
 Contacts.Views.ContactListItem = Backbone.View.extend({
 	tagName: 'li',
-	className: 'col-md-3 clearfix',
+	className: 'col-md-3',
 	template: _.template($('#contactlistitem').html()),
 
 	initialize: function() {
