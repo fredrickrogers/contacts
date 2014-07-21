@@ -9,7 +9,6 @@ Contacts.Views.ContactList = Backbone.View.extend({
 
 	render:function() {
 		this.$el.empty();
-		console.log(this.collection.models);
 		_.each(this.collection.models, function(contact){
 			this.renderContact(contact);
 		}, this);

@@ -13,9 +13,14 @@
 <body>
 	<header>
 		<div class="navbar navbar-default">
-			<div class="navbar-inner">
-				<div class="container">
-					<h1 class="brand">Contact Manager</h1>
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Contacts</a>
+				</div>
+				<div class="navbar-inner">
+					<ul class="nav navbar-nav">
+						<li><a href="#newcontact">New Contact</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -25,6 +30,17 @@
 			<div id="content" class="col-md-12"></div>
 		</div>
 	</section>
+
+	<script type="text/template" id="contactlistitem">
+		<article>
+			<img alt="image"/>
+			<div class="details pull-right">
+				<h3><%= fullname %><small class="pull-right">Director</small></h3>
+				<p><span class="glyphicon glyphicon-envelope"></span> Email Address</p>
+				<p><span class="glyphicon glyphicon-earphone"></span> Phone Number</p>
+			</div>
+		</article>
+	</script>
 
 <script src="javascripts/jquery-1.11.1.min.js"></script>
 <script src="javascripts/underscore-min.js"></script>

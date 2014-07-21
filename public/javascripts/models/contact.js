@@ -3,9 +3,10 @@ Contacts.Models.Contact = Backbone.Model.extend({
 
 	initialize:function() {
 		this.url = this.urlRoot + this.id;
+		this.set({'fullname': this._fullName()});
 	},
 
-	fullName: function() {
+	_fullName: function() {
 		return this.get('firstName') + ' ' + this.get('lastName');
 	}
 });
