@@ -1,6 +1,6 @@
 Contacts.Views.ContactList = Backbone.View.extend({
 	tagName:'ul',
-	className: 'list-unstyled',
+	className: 'list-unstyled list-inline',
 
 	initialize:function() {
 		this.listenTo(this.collection, 'reset', this.render);

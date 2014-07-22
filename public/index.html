@@ -33,14 +33,18 @@
 	</section>
 
 	<script type="text/template" id="contactlistitem">
-		<article class="clearfix contact">
-			<img alt="image"/>
-			<div class="details">
-				<h3><%= fullname %><small class="pull-right">Director</small></h3>
-				<p><span class="glyphicon glyphicon-envelope"></span> Email Address</p>
-				<p><span class="glyphicon glyphicon-earphone"></span> Phone Number</p>
-			</div>
-		</article>
+		<article class="contact thumbnail clearfix">
+            <img alt="image" class="image-rounded"/>
+            <div class="caption">
+                <h3>Fredrick Rogers</h3>
+                <h4>Director</h4>
+                <dl>
+                	<dt>Phone</dt><dd>(123)456-7890</dd>
+                    <dt>Email</dt><dd>address@email.com</dd>
+                </dl>
+                <p><a href="#contact/<%= _id %>" class="btn btn-default">View</a></p>
+            </div>
+        </article>
 	</script>
 
 <script src="javascripts/jquery-1.11.1.min.js"></script>
