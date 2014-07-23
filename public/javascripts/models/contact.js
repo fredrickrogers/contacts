@@ -1,4 +1,11 @@
 Contacts.Models.Contact = Backbone.Model.extend({
+	defaults: {
+		firstName: '',
+		lastName: '',
+		email: '',
+		phone: ''
+	},
+
 	urlRoot:"/api/contacts/",
 
 	initialize:function() {

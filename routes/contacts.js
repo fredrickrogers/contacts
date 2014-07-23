@@ -27,7 +27,7 @@ router.route('/contacts/:id')
 	.get(function(req, res){
 		Contact.findOne({_id:req.params.id}, function(err, contact){
 			if(err) {
-				return res.send(err)
+				return res.send(err);
 			}
 			res.json(contact);
 		});
@@ -38,7 +38,7 @@ router.route('/contacts/:id')
 				return res.send(err);
 			}
 
-			for(prop in req.body) {
+			for(var prop in req.body) {
 				contact[prop] = req.body[prop];
 			}
 
