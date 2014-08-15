@@ -1,6 +1,6 @@
 Contacts.Views.ContactList = Backbone.View.extend({
 	tagName:'table',
-	className: 'table',
+	className: 'contacs table',
 
 	initialize:function() {
 		this.listenTo(this.collection, 'reset', this.render);

@@ -20,7 +20,7 @@
 				</div>
 				<div class="navbar-inner">
 					<ul class="nav navbar-nav">
-						<li><a href="#newcontact">New Contact</a></li>
+						<li><a href="#contacts/add">New Contact</a></li>
 					</ul>
 				</div>
 			</div>
@@ -33,9 +33,56 @@
 	</section>
 
 	<script type="text/template" id="contactlistitem">
-		<td><%= fullname %></td>
-		<td><%= email %></td>
-		<td><%= phone %></td>
+		<td><%= lastname %>, <%= firstname %></td>
+	 	<td><%= phone %></td>
+	 	<td><%= email %></td>
+	</script>
+
+	<script type="text/template" id="editcontact">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="firstname">First Name</label>
+				<input type="text" class="form-control" id="firstname" placeholder="First Name" value="<%= firstname%>"/>
+			</div>
+			<div class="form-group">
+				<label for="lastname">Last Name</label>
+				<input type="text" class="form-control" id="lastname" placeholder="Last Name" value="<%= lastname%>"/>
+			</div>
+			<div class="form-group">
+				<label for="street1">Address 1</label>
+				<input type="text" class="form-control" id="street1" placeholder="Address" value="<%= street1 %>"/><br/>
+				<input type="text" class="form-control" id="street2" placeholder="Address" value="<%= street2 %>"/>
+			</div>
+			<div class="form-group">
+				<label for="city">City</label>
+				<input type="text" class="form-control" id="city" placeholder="City" value="<%= city %>"/>
+			</div>
+			<div class="form-group">
+				<label for="state">State</label>
+				<input type="text" class="form-control" id="state" placeholder="State" value="<%= state %>"/>
+			</div>
+			<div class="form-group">
+				<label for="zip">Zip Code</label>
+				<input type="text" class="form-control" id="zip" placeholder="Zip Code" value="<%= zip %>"/>
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone Number</label>
+				<input type="tel" class="form-control" id="phone" placeholder="Phone Number" value="<%= phone %>"/>
+			</div>
+			<div class="form-group">
+				<label for="email">Email Address</label>
+				<input type="email" class="form-control" id="email" placeholder="Email Address" value="<%= email %>"/>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="notes">Notes</label>
+				<textarea class="form-control" id="notes" rows="5"><%= notes %></textarea> 
+			</div>
+			<div class="form-group">
+				<button class="btn delete-contact pull-right">Delete Contact</button>
+			</div>
+		</div>
 	</script>
 
 <script src="vendor/jquery-1.11.1.min.js"></script>
@@ -48,6 +95,7 @@
 <script src="javascripts/collections/contacts.js"></script>
 <script src="javascripts/views/contactlist.js"></script>
 <script src="javascripts/views/contactlistitem.js"></script>
+<script src="javascripts/views/editcontact.js"></script>
 <script src="javascripts/app.js"></script>
 
 </body>

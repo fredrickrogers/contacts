@@ -1,19 +1,21 @@
 Contacts.Models.Contact = Backbone.Model.extend({
 	defaults: {
-		firstName: '',
-		lastName: '',
+		firstname: '',
+		lastname: '',
+		street1: '',
+		street2: '',
+		state: '',
+		city: '',
+		zip: '',
+		phone: '',
 		email: '',
-		phone: ''
+		notes: ''
 	},
 
-	urlRoot:"/api/contacts/",
+	idAttribute: "_id",
+	urlRoot:"/api/contacts",
 
 	initialize:function() {
-		this.url = this.urlRoot + this.id;
-		this.set({'fullname': this._fullName()});
+		
 	},
-
-	_fullName: function() {
-		return this.get('firstName') + ' ' + this.get('lastName');
-	}
 });

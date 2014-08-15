@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var contacts = require('./routes/contacts');
+var contacts = require('./app/routes/contacts');
 
 var app = express();
 

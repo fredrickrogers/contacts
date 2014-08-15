@@ -19,7 +19,7 @@ router.route('/contacts')
 			if(err){
 				return res.send(err);
 			}
-			res.send({message: 'Contact Added'});
+			res.send(contact);
 		});
 	});
 
@@ -33,23 +33,12 @@ router.route('/contacts/:id')
 		});
 	})
 	.put(function(req, res){
-		Contact.findOne({_id:req.params.id}, function(err, contact){
+		Contact.findByIdAndUpdate(req.params.id, req.body, function(err, contact){
 			if(err) {
 				return res.send(err);
 			}
-
-			for(var prop in req.body) {
-				contact[prop] = req.body[prop];
-			}
-
-			contact.save(function(err){
-				if(err) {
-					return res.send(err);
-				}
-
-				res.json({message: 'Contact Updated!'});
-			});
-
+			
+			res.json(contact);
 		});
 	})
 	.delete(function(req, res){
