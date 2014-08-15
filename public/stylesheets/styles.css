@@ -1,3 +1,7 @@
-.contacts td {
+.contacts tr:hover {
 	cursor: pointer;
+}
+
+.alert {
+    display:none;
 }

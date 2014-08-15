@@ -1,11 +1,10 @@
 Contacts.Views.EditContactView = Backbone.View.extend({
-	tagName: 'form',
 	className: 'row-fluid',
 	template: _.template($('#editcontact').html()),
 
 	events: {
-		"blur .form-control" : '_saveContact',
-		"click .delete-contact" : "_deleteContact"
+		"click .alert" : "_hideAlert",
+		"change .form-control" : '_saveContact',
 	},
 
 	initialize: function() {
@@ -17,28 +16,21 @@ Contacts.Views.EditContactView = Backbone.View.extend({
 		return this;
 	},
 
-	_deleteContact: function() {
-		var options = {
-			success: function(model, response, options) {
-				router.navigate("/contacts/", {trigger:true});
-			},
-			error: function(model, response, options) {
-				console.log(response);
-			}
-		};
-
-		this.model.destroy(options);
+	_hideAlert: function() {
+		$('.alert').hide();
 	},
 
 	_saveContact: function() {
-		var options = {
-			success: function(model, response, options) {
-				router.navigate('/contacts/' + model.get('_id'));
-			},
-			error: function(model, response, options) {
-				console.log(response);
-			}
-		};
+		var self = this,
+	    	options = {
+				success: function(model, response, options) {
+			    	self._showSuccessAlert('alert-info');
+					router.navigate('/contacts/' + model.get('_id'));
+				},
+				error: function(model, response, options) {
+					console.log(response);
+				}
+			};
 
 		var contact = {
 			firstname: this.$('#firstname').val(),
@@ -54,5 +46,12 @@ Contacts.Views.EditContactView = Backbone.View.extend({
 		};
 
 		this.model.save(contact, options); 
+	},
+	
+	_showSuccessAlert: function(klass) {
+		$('.alert').removeClass('alert-info alert-warning');
+		$('.alert').addClass(klass);
+		$('.alert p').text('Successfully Saved');
+		$('.alert').show();
 	}
 });

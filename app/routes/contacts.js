@@ -19,7 +19,7 @@ router.route('/contacts')
 			if(err){
 				return res.send(err);
 			}
-			res.send(contact);
+			res.json(contact);
 		});
 	});
 
@@ -33,12 +33,25 @@ router.route('/contacts/:id')
 		});
 	})
 	.put(function(req, res){
-		Contact.findByIdAndUpdate(req.params.id, req.body, function(err, contact){
+		Contact.findById(req.params.id, function(err, contact){
 			if(err) {
+				console.log(err);
 				return res.send(err);
 			}
 			
-			res.json(contact);
+			delete req.body._id;
+			
+			for(prop in req.body) {
+				contact[prop] = req.body[prop];
+			}
+			
+			contact.save(function(err){
+				if(err) {
+					console.log(err);
+					return res.send(err);
+				}	
+				res.json(contact);
+			});
 		});
 	})
 	.delete(function(req, res){
