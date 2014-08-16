@@ -1,11 +1,12 @@
 Contacts.Router = Backbone.Router.extend({
 	routes: {
-		"": "contacts",
+		"": "list",
+		"contacts":  "list",
 		"contacts/add": 'addContact',
 		"contacts/:id": "editContact",
 	},
 
-	contacts: function() {
+	list: function(page) {
 		var contacts = new Contacts.Collections.Contacts();
 		$("#content").html(new Contacts.Views.ContactList({collection:contacts}).render().el);
 		contacts.fetch({reset:true});

@@ -41,7 +41,7 @@ router.route('/contacts/:id')
 			
 			delete req.body._id;
 			
-			for(prop in req.body) {
+			for(var prop in req.body) {
 				contact[prop] = req.body[prop];
 			}
 			

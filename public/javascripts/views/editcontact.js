@@ -3,7 +3,7 @@ Contacts.Views.EditContactView = Backbone.View.extend({
 	template: _.template($('#editcontact').html()),
 
 	events: {
-		"click .alert" : "_hideAlert",
+		"click .close" : "_hideAlert",
 		"change .form-control" : '_saveContact',
 	},
 
